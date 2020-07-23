@@ -34,7 +34,7 @@ class HttpClient
 
         $data = [
             'status_code' => $response->getStatusCode(),
-            'success' => $success = $response->getStatusCode() == 200,
+            'success' => ($success = $response->getStatusCode() == 200),
             'data' => [],
         ];
 
@@ -45,23 +45,30 @@ class HttpClient
         return $data;
     }
 
-	public function getArray($url)
-	{
+    public function getArray($url)
+    {
         return $this->toJson($this->getRaw($url));
-	}
+    }
 
-	public function getRaw($url)
-	{
-		return file_get_contents($url);
-	}
+    public function getRaw($url)
+    {
+        $response = $this->request('GET', $url, [
+            'connect_timeout' => 20,
+            'read_timeout' => 20,
+        ]);
+
+        return (string) $response->getBody();
+    }
 
     private function instantiateGuzzle()
     {
-        $this->guzzle = new Guzzle;
+        $this->guzzle = new Guzzle();
     }
 
     private function sanitizeJson($data)
     {
+        $data = str_replace("\n", '', $data);
+
         $data = str_replace('=\>', ' - ', $data);
 
         return $data;
@@ -73,13 +80,6 @@ class HttpClient
      */
     private function toJson($data)
     {
-        $result = json_decode($data, true);
-
-        if (! $result)
-        {
-            $result = json_decode($this->sanitizeJson($data));
-        }
-
-        return $result;
+        return json_decode($this->sanitizeJson($data), true);
     }
 }
