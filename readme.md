@@ -21,13 +21,13 @@ http://apiportal.alerj.rj.gov.br/api/v1.0/proderj/api/deputadoservice
 
 ### Requisições LDAP
 
-As configurações específicas dessa requisição estão em `config/ldap.php`.
+As configurações específicas dessa requisição estão em `config/ldap.php`. Nas URLs, é usada a chave `LDAP_ROUTE_PREFIX` do `.env`.
 
 #### Validação LDAP(login e senha)
 
 Valida login e senha no AD.
 
-A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `password` no corpo. Na URL, é necessária uma chave, a `LDAP_ROUTE_PREFIX` do `.env`.
+A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `password` no corpo.
 
 ```
 https://apiportal.alerj.rj.gov.br/api/v1.0/ldap/<LDAP_ROUTE_PREFIX>/login
@@ -37,7 +37,7 @@ https://apiportal.alerj.rj.gov.br/api/v1.0/ldap/<LDAP_ROUTE_PREFIX>/login
 
 Retorna detalhes de um usuário no AD.
 
-A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `password` no corpo. Na URL, é necessária uma chave, a `LDAP_ROUTE_PREFIX` do `.env`.
+A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `password` no corpo.
 
 ```
 https://apiportal.alerj.rj.gov.br/api/v1.0/ldap/<LDAP_ROUTE_PREFIX>/user
@@ -56,11 +56,13 @@ DB_ALERJ_ADM_USER_USERNAME=
 DB_ALERJ_ADM_USER_PASSWORD=
 ```
 
+Nas URLs, é usada a chave `ADM_USER_ROUTE_PREFIX` do `.env`.
+
 #### Permissões no SGUS
 
 Retorna a lista de permissões para um usuário em um sistema.
 
-A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `system` no corpo. Na URL, é necessária uma chave, a `ADM_USER_ROUTE_PREFIX` do `.env`.
+A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `system` no corpo.
 
 ```
 https://apiportal.alerj.rj.gov.br/api/v1.0/adm-user/<ADM_USER_ROUTE_PREFIX>/permissions
@@ -70,7 +72,7 @@ https://apiportal.alerj.rj.gov.br/api/v1.0/adm-user/<ADM_USER_ROUTE_PREFIX>/perm
 
 Retorna a lista de permissões para um usuário em um sistema.
 
-A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `system` no corpo. Na URL, é necessária uma chave, a `ADM_USER_ROUTE_PREFIX` do `.env`.
+A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `system` no corpo.
 
 ```
 https://apiportal.alerj.rj.gov.br/api/v1.0/adm-user/<ADM_USER_ROUTE_PREFIX>/profiles
