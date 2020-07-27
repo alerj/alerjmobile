@@ -33,11 +33,11 @@ A API é acessada a partir de uma requisição POST, contendo os atributos `user
 https://apiportal.alerj.rj.gov.br/api/v1.0/ldap/<LDAP_ROUTE_PREFIX>/login
 ```
 
-#### Validação LDAP(login e senha)
+#### Informações de um usuário
 
 Retorna detalhes de um usuário no AD.
 
-A API é acessada a partir de uma requisição POST, contendo os atributos `username` e `password` no corpo.
+A API é acessada a partir de uma requisição POST, contendo o atributo `username` no corpo.
 
 ```
 https://apiportal.alerj.rj.gov.br/api/v1.0/ldap/<LDAP_ROUTE_PREFIX>/user
