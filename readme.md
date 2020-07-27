@@ -1,9 +1,9 @@
 ## AlerjMobile
 
-### Requisistos
+### Requisistos(PHP fpm)
 
 - Para conexão com um servidor SQLServer(o banco atual do SGUS), é necessária a instalação do PDO `pdo_dblib`
-- Extensão `php-ldap` instalada no PHP fpm utilizado para o aplicativo
+- Extensão `php-ldap`
 
 ### Buscas PRODERJ
 
